@@ -5,12 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rohit Kumar | Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Simple background styling */
+    body {
+      background-color: #f0f4f8;
+    }
+
+    .bg-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      z-index: -1;
+    }
+  </style>
 </head>
 
 <body class="font-sans leading-relaxed text-gray-800">
 
   <!-- Login Screen -->
-  <section id="loginScreen" class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 text-white p-8">
+  <section id="loginScreen" class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-white p-8">
     <h1 class="text-4xl font-bold mb-8">Welcome to Rohit's Portfolio</h1>
     <form id="loginForm" class="bg-white text-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm space-y-4">
       <div>
@@ -28,6 +44,13 @@
   <!-- Portfolio Screen -->
   <div id="portfolioScreen" class="hidden">
 
+    <!-- Personalized Greeting Section -->
+    <section id="greetingSection" class="min-h-screen bg-yellow-100 flex items-center justify-center text-center py-12">
+      <div>
+        <h2 id="greetingMessage" class="text-3xl font-bold text-gray-800"></h2>
+      </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white flex items-center justify-center flex-col text-center p-8">
       <h1 class="text-5xl font-bold mb-4">Rohit Kumar</h1>
@@ -35,6 +58,8 @@
       <div class="mt-6 space-x-4">
         <a href="mailto:rk9006007262@gmail.com" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold">Contact Me</a>
         <a href="https://github.com/Rohit00sketch" target="_blank" class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold">GitHub</a>
+        <a href="https://www.linkedin.com/in/rohit-kumar-202729219/" target="_blank" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold">LinkedIn</a>
+        <a href="https://leetcode.com/u/Rohitkr1499/" target="_blank" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold">LeetCode</a>
       </div>
     </section>
 
@@ -58,16 +83,28 @@
             <h3 class="text-xl font-bold mb-2">Task Scheduling in Cloud Computing</h3>
             <p class="text-sm mb-4">Reduced server make-span time using Hybrid G-PSO algorithm and compared various task scheduling methods.</p>
             <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Cloud | Scheduling</span>
+            <!-- Research Paper Link -->
+            <div class="mt-4">
+              <a href="https://ieeexplore.ieee.org/document/10674973" target="_blank" class="text-blue-600 underline">Read Research Paper</a>
+            </div>
           </div>
           <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
             <h3 class="text-xl font-bold mb-2">Movie Recommendation System</h3>
             <p class="text-sm mb-4">Built an ML model analyzing user preferences and improved model efficiency by 20% using Cosine Similarity.</p>
             <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">ML | Python</span>
+            <!-- GitHub Link -->
+            <div class="mt-4">
+              <a href="https://github.com/Rohit00sketch/Movie-Recommendation-System" target="_blank" class="text-blue-600 underline">View on GitHub</a>
+            </div>
           </div>
           <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
             <h3 class="text-xl font-bold mb-2">Covid Management System</h3>
             <p class="text-sm mb-4">Created a C++ system for managing user data, vaccine tracking, and admin tasks with secure login functionality.</p>
             <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs">C++ | DSA</span>
+            <!-- GitHub Link -->
+            <div class="mt-4">
+              <a href="https://github.com/Rohit00sketch/COVID-Management-System-Using-CPP-" target="_blank" class="text-blue-600 underline">View on GitHub</a>
+            </div>
           </div>
         </div>
       </div>
@@ -117,6 +154,14 @@
       </div>
     </section>
 
+    <!-- Visitors List -->
+    <section id="visitors" class="bg-white py-20 px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Visitors</h2>
+        <ul id="visitorList" class="space-y-4 text-gray-700"></ul>
+      </div>
+    </section>
+
   </div>
 
   <!-- JavaScript -->
@@ -124,6 +169,27 @@
     const loginForm = document.getElementById('loginForm');
     const loginScreen = document.getElementById('loginScreen');
     const portfolioScreen = document.getElementById('portfolioScreen');
+    const greetingMessage = document.getElementById('greetingMessage');
+    const visitorList = document.getElementById('visitorList');
+
+    // Check for stored visitor names on page load
+    const storedVisitors = JSON.parse(localStorage.getItem('visitors')) || [];
+
+    // Display stored visitors (limit to 10)
+    function displayVisitors() {
+      visitorList.innerHTML = '';
+      const recentVisitors = storedVisitors.slice(-10); // Limit to the last 10 visitors
+      recentVisitors.forEach((visitor) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = visitor;
+        visitorList.appendChild(listItem);
+      });
+    }
+
+    displayVisitors();
+
+    // Display default greeting if no name is provided
+    greetingMessage.innerHTML = 'Hello Stranger! Welcome to my Portfolio Website! Keep Scrolling';
 
     loginForm.addEventListener('submit', function(e) {
       e.preventDefault(); // prevent form reload
@@ -131,8 +197,15 @@
       const dob = document.getElementById('dob').value.trim();
 
       if (name && dob) {
+        // Add name to stored visitors list
+        storedVisitors.push(name);
+        localStorage.setItem('visitors', JSON.stringify(storedVisitors));
+
         loginScreen.classList.add('hidden');
         portfolioScreen.classList.remove('hidden');
+
+        // Update the displayed visitor list
+        displayVisitors();
       } else {
         alert('Please enter both Name and Date of Birth.');
       }
