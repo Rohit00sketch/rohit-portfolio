@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rohit Kumar | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans leading-relaxed text-gray-800">
+
+  <!-- Login Screen -->
+  <section id="loginScreen" class="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-green-400 to-blue-500 text-white p-8">
+    <h1 class="text-4xl font-bold mb-8">Welcome to Rohit's Portfolio</h1>
+    <form id="loginForm" class="bg-white text-gray-800 p-8 rounded-lg shadow-lg w-full max-w-sm space-y-4">
+      <div>
+        <label class="block font-semibold mb-2">Name:</label>
+        <input type="text" id="name" required class="w-full border border-gray-300 rounded p-2">
+      </div>
+      <div>
+        <label class="block font-semibold mb-2">Date of Birth:</label>
+        <input type="date" id="dob" required class="w-full border border-gray-300 rounded p-2">
+      </div>
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 mt-4">Enter</button>
+    </form>
+  </section>
+
+  <!-- Portfolio Screen -->
+  <div id="portfolioScreen" class="hidden">
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white flex items-center justify-center flex-col text-center p-8">
+      <h1 class="text-5xl font-bold mb-4">Rohit Kumar</h1>
+      <p class="text-xl">Programming Enthusiast | Problem Solver | Cloud & ML Projects</p>
+      <div class="mt-6 space-x-4">
+        <a href="mailto:rk9006007262@gmail.com" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold">Contact Me</a>
+        <a href="https://github.com/Rohit00sketch" target="_blank" class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold">GitHub</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="bg-gray-100 py-20 px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">About Me</h2>
+        <p class="text-lg">
+          I am a passionate programmer pursuing B.Tech in Computer Science & Engineering (CGPA: 8.7) at CV Raman Global University.
+          I love solving real-world problems through coding, cloud computing, and machine learning.
+        </p>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="bg-gradient-to-r from-green-400 to-blue-500 py-20 px-8 text-white">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+        <div class="grid md:grid-cols-3 gap-10">
+          <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-bold mb-2">Task Scheduling in Cloud Computing</h3>
+            <p class="text-sm mb-4">Reduced server make-span time using Hybrid G-PSO algorithm and compared various task scheduling methods.</p>
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Cloud | Scheduling</span>
+          </div>
+          <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-bold mb-2">Movie Recommendation System</h3>
+            <p class="text-sm mb-4">Built an ML model analyzing user preferences and improved model efficiency by 20% using Cosine Similarity.</p>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">ML | Python</span>
+          </div>
+          <div class="bg-white text-gray-900 rounded-xl p-6 shadow-lg">
+            <h3 class="text-xl font-bold mb-2">Covid Management System</h3>
+            <p class="text-sm mb-4">Created a C++ system for managing user data, vaccine tracking, and admin tasks with secure login functionality.</p>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs">C++ | DSA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="bg-yellow-100 py-20 px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Skills</h2>
+        <p class="text-lg mb-6">C, C++, Java, SQL, OS, Linux, DSA, DBMS, Cloud Computing</p>
+        <p class="text-md text-gray-700">Soft Skills: Teamwork, Creativity, Leadership</p>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="bg-gradient-to-r from-pink-400 to-red-500 py-20 px-8 text-white">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+        <ul class="space-y-4">
+          <li>📜 PCAP: Programming Essentials in Python (Liceria & Co.)</li>
+          <li>📜 CCNAv7: Introduction to Networks (Hanover and Tyke)</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="bg-white py-20 px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Achievements</h2>
+        <ul class="space-y-4 text-gray-700">
+          <li>🌟 5-star coder in C, C++ on HackerRank</li>
+          <li>🚀 Participated in HackOn with Amazon</li>
+          <li>🎯 Solved 200+ coding problems (GFG, LeetCode, CodeChef)</li>
+          <li>📝 Published Research Paper: 
+            <a href="https://ieeexplore.ieee.org/document/10674973" target="_blank" class="text-blue-600 underline">Load Balancing in Cloud Computing (IEEE)</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="bg-gray-900 text-white py-20 px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
+        <p class="mb-4">📧 rk9006007262@gmail.com</p>
+        <p>🌐 <a href="https://github.com/Rohit00sketch" class="underline">GitHub Profile</a></p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const loginForm = document.getElementById('loginForm');
+    const loginScreen = document.getElementById('loginScreen');
+    const portfolioScreen = document.getElementById('portfolioScreen');
+
+    loginForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent form reload
+      const name = document.getElementById('name').value.trim();
+      const dob = document.getElementById('dob').value.trim();
+
+      if (name && dob) {
+        loginScreen.classList.add('hidden');
+        portfolioScreen.classList.remove('hidden');
+      } else {
+        alert('Please enter both Name and Date of Birth.');
+      }
+    });
+  </script>
+
+</body>
+</html>
